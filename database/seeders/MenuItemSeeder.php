@@ -12,6 +12,9 @@ class MenuItemSeeder extends Seeder
     {
         $now = Carbon::now();
 
+        // Clear existing items first to prevent duplicates on redeploy
+        DB::table('menu_items')->truncate();
+
         DB::table('menu_items')->insert([
             // ── Coffee ────────────────────────────────────────────
             [
