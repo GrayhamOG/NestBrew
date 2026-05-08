@@ -316,10 +316,9 @@ setInterval(updateOpenStatus, 60000);
   window.handleCheckout = function () {
     if (!isLoggedIn) { window.location.href = loginUrl + '?signin=true'; return; }
 
-    // Pre-fill name from nav if available
-    const navName = $('nav span').first().text().replace('Hi,', '').replace('👋', '').trim();
-    if (navName && !$('#addr-name').val()) {
-      $('#addr-name').val(navName);
+    // Pre-fill with the authenticated user's name (editable by user)
+    if (authUserName && !$('#addr-name').val()) {
+      $('#addr-name').val(authUserName);
     }
 
     $('#address-overlay').css('display', 'flex').hide().fadeIn(200);

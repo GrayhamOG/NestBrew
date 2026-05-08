@@ -419,8 +419,9 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-    const isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-    const loginUrl   = "{{ url('/') }}";
+    const isLoggedIn  = {{ auth()->check() ? 'true' : 'false' }};
+    const loginUrl    = "{{ url('/') }}";
+    const authUserName = "{{ auth()->check() ? auth()->user()->name : '' }}";
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
