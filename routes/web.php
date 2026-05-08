@@ -7,6 +7,7 @@ use App\Http\Controllers\MenuApiController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminOrderController;
 
 // ── Public routes ──────────────────────────────────────────────
 
@@ -51,6 +52,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('menu', MenuItemController::class);
+
+Route::get('orders',              [AdminOrderController::class, 'index'])->name('orders.index');
+Route::patch('orders/{id}/status',[AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
+
 });
 
 require __DIR__.'/auth.php';
