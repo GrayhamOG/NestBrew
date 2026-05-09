@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\MenuItem;
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class MenuItemController extends Controller
 {
     // READ — show all menu items
     public function index()
-    {
-        $menuItems = MenuItem::orderBy('category')->get();
-        return view('admin.menu.index', compact('menuItems'));
-    }
+{
+    $menuItems = MenuItem::orderBy('category')->get();
+    $orders    = Order::with(['user', 'items'])->latest()->get();
+
+    return view('admin.menu.index', compact('menuItems', 'orders'));
+}
 
     // CREATE — show the create form
     public function create()
