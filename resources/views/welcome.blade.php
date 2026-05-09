@@ -196,7 +196,7 @@
     <div class="divider"></div>
     <p class="location-address">
       Caza Azucena,<br>
-      Pabayo Street<br>
+      Pabayo<br>
       Cagayan de Oro City,<br>
       Misamis Oriental 9000
     </p>
@@ -253,6 +253,13 @@
             <input class="form-input" type="password" name="password"
                    placeholder="••••••••" required/>
           </div>
+          <div class="form-group" style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+  <input type="checkbox" name="remember" id="remember"
+         style="width:16px; height:16px; accent-color:var(--brown); cursor:pointer;"/>
+  <label for="remember" class="form-label" style="margin-bottom:0; cursor:pointer;">
+    Remember Me
+  </label>
+</div>
           @if ($errors->login->any())
             <p class="form-error">{{ $errors->login->first() }}</p>
           @endif
