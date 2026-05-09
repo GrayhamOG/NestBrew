@@ -195,15 +195,19 @@
     <h2 class="section-title">Find <em>Us</em></h2>
     <div class="divider"></div>
     <p class="location-address">
-      Food Haus Mercado,<br>
-      Kauswagan Diversion Road<br>
+      Caza Azucena,<br>
+      Pabayo Street<br>
       Cagayan de Oro City,<br>
       Misamis Oriental 9000
     </p>
-    <div class="location-map" onclick="showToast('Opening maps...')">
-      🗺️
-      <p>View on Google Maps</p>
-    </div>
+    <a href="https://www.google.com/maps/place/Casa+Azucena/@8.4753147,124.6426706,17.25z/data=!4m9!3m8!1s0x32fff2d691653b01:0xe474664defcf32bf!5m2!4m1!1i2!8m2!3d8.4752697!4d124.6451107!16s%2Fg%2F1ptzbh4bf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="location-map" 
+   style="text-decoration:none; display:block;">
+  🗺️
+  <p>View on Google Maps</p>
+</a>
   </div>
 </section>
 
