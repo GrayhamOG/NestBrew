@@ -12,6 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
 
+        // ── Redirect unauthenticated users to homepage ─────
+        $middleware->redirectGuestsTo('/');
+
         // ── Apply to every single request ──────────────────
         $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
         $middleware->append(\App\Http\Middleware\SanitizeInput::class);
@@ -22,13 +25,12 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
     })
-
     ->withMiddleware(function (Middleware $middleware) {
-    $middleware->alias([
-        'admin' => \App\Http\Middleware\AdminMiddleware::class,
-        'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
-    ]);
-})
+        $middleware->alias([
+            'admin'                => \App\Http\Middleware\AdminMiddleware::class,
+            'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
+        ]);
+    })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
