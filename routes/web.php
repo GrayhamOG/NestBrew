@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin', 'prevent-back-history'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('menu', MenuItemController::class);
-    Route::patch('orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
+    Route::patch('orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 });
 
 require __DIR__.'/auth.php';
