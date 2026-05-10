@@ -11,9 +11,13 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         // If not logged in or not admin — redirect to homepage
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            abort(403, 'Access denied. Admins only.');
-        }
+       if (!Auth::check()) {
+    return redirect('/');
+}
+
+if (!Auth::user()->isAdmin()) {
+    abort(403, 'Access denied. Admins only.');
+}
 
         return $next($request);
     }
