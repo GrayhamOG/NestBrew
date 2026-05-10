@@ -50,12 +50,9 @@ Route::middleware('auth')->group(function () {
 
 // ── Admin routes ───────────────────────────────────────────────
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'admin', 'prevent-back-history'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('menu', MenuItemController::class);
-
-Route::get('orders',              [AdminOrderController::class, 'index'])->name('orders.index');
-Route::patch('orders/{id}/status',[AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
-
+    Route::patch('orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
 });
 
 require __DIR__.'/auth.php';
